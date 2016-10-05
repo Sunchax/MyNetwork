@@ -18,7 +18,6 @@ public class neuralNet {
 
     public neuralNet(){
     }
-
     public void setInputLevel(int nrOfNeurons) {
         for (int i = 0; i < nrOfNeurons; i++) {
             neuron n = new neuron();

@@ -13,8 +13,8 @@ public class faceRecognition{
 
 
 
-        Scanner training = new Scanner ( new FileReader(args[0]) );
-        Scanner facit = new Scanner (new FileReader(args[1]));
+        Scanner imageScan = new Scanner ( new FileReader(args[0]) );
+        Scanner facitScan = new Scanner (new FileReader(args[1]));
 
         neuralNet net = new neuralNet();
         net.setInputLevel(32);
@@ -23,9 +23,29 @@ public class faceRecognition{
         ArrayList<int> image = new ArrayList<>();
         ArrayList<ArrayList> listOfImages = new ArrayList<>();
 
-        training.findInLine("Image1");
-        while(training.hasNextInt()){
-            image.add(training.nextInt());
+        //Makes a array with the training images.
+        while(imageScan.hasNext()){
+            imageScan.findInLine('Image');
+            imageScan.nextLine();
+            while(imageScan.hasNextInt()){
+                image.add(imageScan.nextInt());
+            }
+            listOfImages.add(image);
         }
+        ArrayList<int> facit = new ArrayList<>();
+
+        //Makes a array with facit.
+        int i = 0;
+        while(facitScan.hasNext()){
+            imageScan.findInLine('image' + i);
+            facit.add(imageScan.nextInt());
+        }
+
+
     }
+
+
+
+
+
 }
